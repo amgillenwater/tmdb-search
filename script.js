@@ -24,9 +24,11 @@ searchButton.onclick = function (e) {
 }
 
 function renderResults (data) {
+  console.log('results', data)
   movieContainer.innerHTML = ''
   const movies = data.results
-  const movieSection = movieCard(movies)
+  const movieCount = data.total_results
+  const movieSection = movieCard(movies, movieCount)
   movieContainer.appendChild(movieSection)
   //   console.log('Data:', data)
 }
@@ -35,20 +37,27 @@ function movieMap (movies) {
   return movies.map((movie) => {
     if (movie.poster_path) {
       return `<img src=${IMG_URL + movie.poster_path}
-      data-movie-id=${movie.id}/>`
+      data-movie-id=${movie.id}/> </br> <h2>${movie.original_title}</h2><p>${movie.overview}</p>
+      `
     }
   })
 }
-function movieCard (movies) {
+function movieCard (movies, movieCount) {
   const movieDiv = document.createElement('div')
   movieDiv.setAttribute('class', 'movie-results')
-
-  const movieTemplate = `
+  if (movieCount === 0) {
+    const noResults = `
+        <h1>No results found, please try again</h1>`
+    movieDiv.innerHTML = noResults
+    return movieDiv
+  } else {
+    const movieTemplate = `
    <section>
      ${movieMap(movies).join('')}
    </section>
   `
 
-  movieDiv.innerHTML = movieTemplate
-  return movieDiv
+    movieDiv.innerHTML = movieTemplate
+    return movieDiv
+  }
 }
