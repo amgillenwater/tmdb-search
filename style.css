@@ -34,6 +34,7 @@
 section img{
     width: 100px;
     margin: 15px;
+    display: flex;
 }
 
 footer img {
@@ -53,4 +54,17 @@ footer {
 
 #content {
     padding-bottom: 2.5rem;
+}
+
+#movie-card {
+    outline: black 2px solid;
+    border-radius: 25px;
+    width: 100%;
+    padding: 15px;
+    margin: 20 px;
+    display: float;
+}
+
+p {
+    text-align: right;
 }

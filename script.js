@@ -36,8 +36,8 @@ function renderResults (data) {
 function movieMap (movies) {
   return movies.map((movie) => {
     if (movie.poster_path) {
-      return `<img src=${IMG_URL + movie.poster_path}
-      data-movie-id=${movie.id}/> </br> <h2>${movie.original_title}</h2><p>${movie.overview}</p>
+      return `<div id="movie-card"><h2>${movie.original_title}</h2><img src=${IMG_URL + movie.poster_path}
+      data-movie-id=${movie.id}/> </br><p>${movie.overview}</p></div>
       `
     }
   })
