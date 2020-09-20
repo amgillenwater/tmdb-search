@@ -17,22 +17,26 @@ searchButton.onclick = function (e) {
 
   fetch(url)
     .then((results) => results.json())
-    .then((data) => {
-      const movies = data.results
-      const movieSection = movieCard(movies)
-      movieContainer.appendChild(movieSection)
-      //   console.log('Data:', data)
-    })
+    .then(renderResults)
     .catch((error) => {
       console.log('Error:', error)
     })
 }
 
+function renderResults (data) {
+  movieContainer.innerHTML = ''
+  const movies = data.results
+  const movieSection = movieCard(movies)
+  movieContainer.appendChild(movieSection)
+  //   console.log('Data:', data)
+}
+
 function movieLoop (movies) {
   return movies.map((movie) => {
-    return `
-        <img src=${IMG_URL + movie.poster_path} data-movie-id=${movie.id}/>
-        `
+    if (movie.poster_path) {
+      return `<img src=${IMG_URL + movie.poster_path}
+      data-movie-id=${movie.id}/>`
+    }
   })
 }
 function movieCard (movies) {
