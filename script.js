@@ -45,11 +45,8 @@ function movieCard (movies) {
 
   const movieTemplate = `
    <section>
-     ${movieMap(movies)}
+     ${movieMap(movies).join('')}
    </section>
-   <div class="content>
-    <p id="content-exit">x</p>
-    </div>
   `
 
   movieDiv.innerHTML = movieTemplate
