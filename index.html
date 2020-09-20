@@ -7,22 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Search by movie title here:</h1>
-    </header>
-    <section>
-        <form>
-            <div class="form-whole">
-                <input type="text" id="searchValue">
-            </div>
-            <button type="submit" id="searchButton">
-                Search
-            </button>
-        </form>
-    </section>
-    <section id="movie-container">
-    <!-- movie cards will be added here dynamically via JS     -->
-    </section>  
+    <div id="page-container">
+        <header>
+            <h1>Search by movie title here:</h1>
+        </header>
+        <div id="content">
+        <section>
+            <form>
+                <div class="form-whole">
+                    <input type="text" id="searchValue">
+                </div>
+                <button type="submit" id="searchButton">
+                    Search
+                </button>
+            </form>
+        </section>
+        <section id="movie-container">
+        <!-- movie cards will be added here dynamically via JS     -->
+        </section>
+        </div>  
+        <footer>
+            <p>Powered by:</p>
+            <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="TMDb logo">
+        </footer>
+    </div>
     <script src="script.js"></script>
 </body> 
 </html>

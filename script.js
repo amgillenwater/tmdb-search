@@ -31,7 +31,7 @@ function renderResults (data) {
   //   console.log('Data:', data)
 }
 
-function movieLoop (movies) {
+function movieMap (movies) {
   return movies.map((movie) => {
     if (movie.poster_path) {
       return `<img src=${IMG_URL + movie.poster_path}
@@ -45,7 +45,7 @@ function movieCard (movies) {
 
   const movieTemplate = `
    <section>
-     ${movieLoop(movies)}
+     ${movieMap(movies)}
    </section>
    <div class="content>
     <p id="content-exit">x</p>
